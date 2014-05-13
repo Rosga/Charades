@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+           
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+
+
+        
+        <script src="@Url.Content("~/Scripts/jquery-2.1.0.min.js")"
+                type="text/javascript"></script>
+        <script src="~/Scripts/jquery-ui-1.10.4.js" type="text/javascript"></script>
+        <script src="~/Scripts/_references.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/Charades.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("Charades", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    @*<nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>*@
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <div class="content-wrapper">
+                <div class="NavMenu">
+                    <div id="levels">
+                        
+                        @{Html.RenderAction("Menu", "Nav");}
+                    </div>
+                    <div id="dictionaries">
+                        @{Html.RenderAction("DictionaryNav", "Dictionaries");}
+                    </div>
+
+
+                </div>
+                <div class="content-wrapper main-content clear-fix">
+                    @{ Html.RenderAction("Search", "Searching");}
+                    
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <footer>
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    </div>
+                </div>
+            </footer>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+
+    </body>
+</html>

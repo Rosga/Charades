@@ -1,0 +1,31 @@
+﻿@model  IEnumerable<Charades.Domain.Entities.Dictionary>
+
+@*<script src="~/Scripts/jquery-2.1.0.js"></script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        AddDictionary();
+    });
+</script>
+@{
+
+    ViewBag.Title = "Menu";
+}
+
+@foreach (var dictionary in Model)
+{
+    @Html.RouteLink(dictionary.Name, new
+    {
+        controller = "Home",
+        action = "Index",
+        navType = "Dict",
+        id = dictionary.DictionaryId,
+        page = 1
+    },
+    new
+    {
+        id = string.Format("dictionary_{0}",dictionary.DictionaryId),
+        @class = "droppableDictionary"
+    })
+}
+
+<a id="addDict">Add dictionary</a>

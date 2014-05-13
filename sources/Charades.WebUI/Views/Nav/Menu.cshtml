@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Charades.Domain.Entities.Level>
+
+@{
+    ViewBag.Title = "Menu";
+}
+
+@Html.ActionLink("Home", "Index", "Home")
+
+@foreach (var level in Model)
+{
+
+    
+    @Html.RouteLink(level.Description, new
+    {
+        controller = "Home",
+        action = "Index",
+        navType = "Level",
+        id = level.LevelId,
+        page = 1
+    },
+    new
+    {
+        @class = level.Description == ViewBag.SelectedLevel ?  "selected" : null
+    })
+}

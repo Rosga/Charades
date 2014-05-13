@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Charades.Domain.Entities.Word>
+
+@foreach (var word in Model)
+    {
+<div  class="draggable">
+
+        <div class="word" id=@string.Format("word_{0}", word.WordId)>
+            <span>@word.Name</span>
+        </div>
+
+    <hr />
+</div>
+    }

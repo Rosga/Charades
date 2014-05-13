@@ -1,0 +1,39 @@
+﻿@model Charades.WebUI.Models.WordsListViewModel
+
+@*<script src="~/Content/themes/base/jquery.ui.all.css"></script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        AddDraggable();
+        AddDroppable();
+        //AddAutocomplete();
+    });
+
+</script>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<div id="top">
+    <h3>Here is the words</h3>
+</div>
+
+
+    <div id="words" class="words">
+
+            @{Html.RenderPartial("Words", Model.Words);}
+
+    </div>
+<br />
+
+<div class="downbar">
+    <div class="nav">
+        @Html.PageLinks(Model.PagingInfo, x => Model.NavType == "Searching" ? Url.Action("Searchable", "Home",
+                     new { term = Model.Term, page = x }) : 
+       Url.Action("Index", "Home", 
+            new { page = x, id = Model.NavType == null ? 0 : (Model.NavType == "Level" ? Model.Level.LevelId : Model.Dictionary.DictionaryId)}))
+    </div>
+    <a href="@string.Format("/Download{0}", Model.Level == null ? 0 : Model.Level.LevelId)" class="download" target="_blank">Download</a>
+</div>
+
+
