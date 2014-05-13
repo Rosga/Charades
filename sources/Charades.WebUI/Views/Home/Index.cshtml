@@ -28,9 +28,7 @@
 
 <div class="downbar">
     <div class="nav">
-        @Html.PageLinks(Model.PagingInfo, x => Model.NavType == "Searching" ? Url.Action("Searchable", "Home",
-                     new { term = Model.Term, page = x }) : 
-       Url.Action("Index", "Home", 
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", "Home", 
             new { page = x, id = Model.NavType == null ? 0 : (Model.NavType == "Level" ? Model.Level.LevelId : Model.Dictionary.DictionaryId)}))
     </div>
     <a href="@string.Format("/Download{0}", Model.Level == null ? 0 : Model.Level.LevelId)" class="download" target="_blank">Download</a>

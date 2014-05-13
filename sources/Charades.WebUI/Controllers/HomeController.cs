@@ -20,7 +20,7 @@ namespace Charades.WebUI.Controllers
         private ICharadeRepository _repository;
 
         //Колличество записей на странице
-        public int PageSize = 3;
+        public int PageSize = 15;
 
         /// <summary>
         /// Создать новый объект контроллера

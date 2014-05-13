@@ -122,16 +122,21 @@ function AddAutocomplete() {
                 }
                 //var pathname = $(location).attr('href');
                 //var string = JSON.stringify(array);
-                var term = $('#autocomplete').val();
-                //alert(string);
-                $.ajax({
-                    data: { term: term },
-                    url: '/Home/Searchable'
-                }).done(function (data) {
-                    $('DIV.content-wrapper.main-content.clear-fix').html(data);
-                    AddDraggable();
-                    AddDroppable();
-                });
+
+
+                //var term = $('#autocomplete').val();
+                ////alert(string);
+                //$.ajax({
+                //    data: { term: term },
+                //    url: '/Home/Searchable'
+                //}).done(function (data) {
+                //    $('DIV.content-wrapper.main-content.clear-fix').html(data);
+                //    AddDraggable();
+                //    AddDroppable();
+                //});
+
+
+
             }
         //search: function (e, ui) {
         //    alert("I'm searched");

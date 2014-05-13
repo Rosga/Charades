@@ -11,7 +11,7 @@
     ViewBag.Title = "Menu";
 }
 
-@foreach (var dictionary in Model)
+@foreach (var dictionary in Model.Where(m => !string.IsNullOrEmpty(m.Name)))
 {
     @Html.RouteLink(dictionary.Name, new
     {
